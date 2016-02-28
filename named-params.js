@@ -1,3 +1,5 @@
+let send = (traveller, destination) => { console.log("traveller: " + traveller + ", destination: " + destination.to); };
+
 class Parent {
     gave(who, why) {
         const traveller = who,
@@ -9,7 +11,17 @@ class Parent {
 }
 
 let dad = new Parent(),
-    mySister = new Sibling(),
-    theMall = new Mall();
+
+    mySister = new (class Sibling {
+                        toString() {
+                            return 'my sister'
+                        }
+                    }),
+
+    theMall = new (class Mall {
+                        toString() {
+                            return 'the mall'
+                        }
+                    });
 
 dad.gave(mySister, { cashFor: theMall });
